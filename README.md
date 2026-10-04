@@ -21,5 +21,5 @@ An end-to-end DevOps project focused on infrastructure automation, configuration
 - Alertmanager
 - Trivy
 - SonarQube
-
+-
 
