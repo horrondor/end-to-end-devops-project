@@ -1,0 +1,1 @@
+bucket_name = "raju-opentofu-state-dev"
