@@ -1,0 +1,14 @@
+npm-debug.log
+node_modules
+.vault_pass
+.vault_pass.*
+*.vault_pass
+*.retry
+__pycache__/
+*.pyc
+.cache/
+Dockerfile
+.terraform
+.terraform.*
+*.tfstate
+*.tfstate.*
