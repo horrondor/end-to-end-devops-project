@@ -18,33 +18,33 @@ pipeline {
         // sh "docker compose build"
       }
     }
-    // stage ('scan docker image'){
-    //   steps {
-    //     echo "Scaning Frontend  images"
-    //     sh """
-    //       trivy image \
-    //       --timeout 10m\
-    //       --scanners vuln\
-    //       --exit-code 1\
-    //       --severity HIGH,CRITICAL\
-    //       --ignore-unfixed\
-    //       ${Frontend_image}:${TAG} \
-    //       // || true
-    //      """
+    stage ('scan docker image'){
+      steps {
+        echo "Scaning Frontend  images"
+        sh """
+          trivy image \
+          --timeout 10m\
+          --scanners vuln\
+          --exit-code 1\
+          --severity HIGH,CRITICAL\
+          --ignore-unfixed\
+          ${Frontend_image}:${TAG} \
+          // || true
+         """
 
-    //     echo "Scaning Backend images"
-    //     sh """
-    //       trivy image \
-    //       --timeout 10m \
-    //       --scanners vuln\
-    //       --exit-code 1\
-    //       --severity HIGH,CRITICAL\
-    //       --ignore-unfixed\
-    //       ${Backend_image}:${TAG} \
-    //       || true
-    //      """ 
-    //   }
-    // }
+        echo "Scaning Backend images"
+        sh """
+          trivy image \
+          --timeout 10m \
+          --scanners vuln\
+          --exit-code 1\
+          --severity HIGH,CRITICAL\
+          --ignore-unfixed\
+          ${Backend_image}:${TAG} \
+          || true
+         """ 
+      }
+    }
     // stage ('Push docker images'){
     //   steps {
     //     echo "Pushing docker images"
