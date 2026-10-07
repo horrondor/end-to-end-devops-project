@@ -7,7 +7,7 @@ pipeline {
     Backend_image  = "devops_davine_intern_mern_frontend_backend"
     TAG = "${BUILD_NUMBER}"
   }
-
+  stages {
     stage ('Make Docker images'){
       steps {
         echo "Creating frontend image"
