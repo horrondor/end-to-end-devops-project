@@ -8,14 +8,13 @@ pipeline {
     TAG = "${BUILD_NUMBER}"
   }
   stages {
-    stage ('Make Docker images'){
+    stage ('Build Docker images'){
       steps {
         echo "Creating frontend image"
-        sh "docker build -t ${Frontend_image}:${TAG} ${env.WORKSPACE}/App//mern/frontend"
+        sh "docker build -t ${Frontend_image}:${TAG} '${env.WORKSPACE}/App//mern/frontend'"
 
         // echo "Creating Backend image"
-        sh "docker build --no-cache -t ${Backend_image}:${TAG} ${env.WORKSPACE}/App/mern/backend"
-        // sh "docker compose build"
+        sh "docker build --no-cache -t ${Backend_image}:${TAG} '${env.WORKSPACE}/App/mern/backend'"
       }
     }
     stage ('scan docker image'){
